@@ -10,14 +10,14 @@ def trig():
 
     @app.route('/', methods=['POST', 'GET'])
     def form():
-        if request.method == 'POST':
-            num_1 = request.form['num_1']
-            num_2 = float(request.form['num_2'])
-            num_3 = int(request.form['num_3'])
-            num_4 = 'on' if request.form.get('num_4') else 'off'
+        if request.method == 'POST': # маршутчик-обработчик вызывается, когда пользователь отрпавляет форму на севрер
+            num_1 = request.form['num_1'] # для ввода одного из функций tan cos sin ctg
+            num_2 = float(request.form['num_2']) # для ввода числа 
+            num_3 = int(request.form['num_3']) # для ввода точности 
+            num_4 = 'on' if request.form.get('num_4') else 'off' # для определения, в каком из размеров нужно считать (флаг)
 
-            arg = num_2
-            answer = '°' if num_4 == 'on' else 'рад'
+            arg = num_2 # значение, котрое будет в строке ответа
+            answer = '°' if num_4 == 'on' else 'рад' # устанавливает градусы или рад
 
             try:
                 if num_1 == 'cos':
